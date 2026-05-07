@@ -26,6 +26,10 @@ public class Payment {
 	@MapsId
 	private Order order;
 
+	public Payment() {
+		super();
+	}
+
 	public Payment(Long id, Instant moment, Order order) {
 		super();
 		this.id = id;

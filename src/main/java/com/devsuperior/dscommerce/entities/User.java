@@ -150,6 +150,10 @@ public class User implements UserDetails {
 		return email;
 	}
 	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	
 	public void addRole(Role role) {
     	roles.add(role);
     }

@@ -21,7 +21,6 @@ import com.devsuperior.dscommerce.dto.ProductDTO;
 import com.devsuperior.dscommerce.services.ProductService;
 
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping(value = "/products")

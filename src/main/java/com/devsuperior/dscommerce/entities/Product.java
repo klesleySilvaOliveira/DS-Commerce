@@ -96,6 +96,10 @@ public class Product {
 		return categories;
 	}
 
+	public void addCategory(Category category) {
+		this.categories.add(category);
+	}
+
 	public Set<OrderItem> getItems() {
 		return items;
 	}

@@ -122,6 +122,23 @@ public class User implements UserDetails {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	
+	public void addRole(Role role) {
+    	roles.add(role);
+    }
+    
+    public boolean hasRole(String roleName) {
+    	for (Role role : roles) {
+    		if (role.getAuthority().equals(roleName)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 
 	@Override
 	public int hashCode() {
@@ -148,24 +165,7 @@ public class User implements UserDetails {
 	@Override
 	public String getUsername() {
 		return email;
-	}
-	
-	public Set<Role> getRoles() {
-		return roles;
-	}
-	
-	public void addRole(Role role) {
-    	roles.add(role);
-    }
-    
-    public boolean hasRole(String roleName) {
-    	for (Role role : roles) {
-    		if (role.getAuthority().equals(roleName)) {
-    			return true;
-    		}
-    	}
-    	return false;
-    }
+	}	
     
     @Override
 	public boolean isAccountNonExpired() {

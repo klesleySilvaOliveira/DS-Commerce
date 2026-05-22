@@ -10,7 +10,6 @@ import com.devsuperior.dscommerce.dto.OrderItemDTO;
 import com.devsuperior.dscommerce.entities.Order;
 import com.devsuperior.dscommerce.entities.OrderItem;
 import com.devsuperior.dscommerce.repositories.OrderItemRepository;
-import com.devsuperior.dscommerce.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class OrderItemService {
@@ -20,13 +19,6 @@ public class OrderItemService {
 	
 	@Autowired
 	private ProductService productService;
-	
-	@Transactional(readOnly = true)
-	public OrderItemDTO findById(Long id) {
-		OrderItem order = repository.findById(id).orElseThrow(
-				() -> new ResourceNotFoundException("Resource not found!"));
-		return new OrderItemDTO(order);
-	}
 	
 	@Transactional
 	public OrderItemDTO insert(OrderItemDTO dto, Order order) {

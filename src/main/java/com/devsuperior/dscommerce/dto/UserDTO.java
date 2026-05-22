@@ -21,7 +21,7 @@ public class UserDTO {
 		name = user.getName();
 		phone = user.getPhone();
 		birthDate = user.getBirthDate();		
-		user.getRoles().stream().map(x -> this.roles.add(x.getAuthority())).toList();
+		user.getRoles().forEach(role -> this.roles.add(role.getAuthority()));
 	}
 
 	public Long getId() {

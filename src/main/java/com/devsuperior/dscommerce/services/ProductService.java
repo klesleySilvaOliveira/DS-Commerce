@@ -33,6 +33,13 @@ public class ProductService {
 	}
 	
 	@Transactional(readOnly = true)
+	protected Product findByIdProtected(Long id) {
+		Product product = repository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("Resource not found!"));
+		return product;
+	}
+	
+	@Transactional(readOnly = true)
 	public Page<ProductMinDTO> findAll(String name, Pageable pageable){
 		return repository.searchByName(name, pageable).map(x -> new ProductMinDTO(x));
 	}
